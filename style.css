@@ -1,3 +1,5 @@
+/*STYLE GERAL*/
+
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
 
 * {
@@ -7,9 +9,11 @@
 }
 
 body {
-  height: 110vh;
+  height: 120vh;
   background: linear-gradient(hsl(273, 75%, 66%), hsl(240, 73%, 65%)  );
 }
+
+/*STYLE CONTAINER FAQ-ACCORDION*/
 .faq-accordion {
   max-width: 900px;
   width: 85%;
@@ -22,8 +26,10 @@ body {
   border-radius: 1rem;
 }
 
+/*STYLE IMAGENS E ILUSTRAÇÕES*/
 .faq-img {
   height: 450px;
+  width: 100%;
   background-image: url("./images/illustration-woman-online-desktop.svg");
   background-repeat: no-repeat;
   background-size: 450px;
@@ -35,6 +41,7 @@ body {
   content: "";
   display: inline-block;
   width: 100%;
+  max-width: 400px;
   height: 670px;
   background-image: url("./images/bg-pattern-desktop.svg");
   background-position: -340px -150px;
@@ -47,13 +54,15 @@ body {
   position: absolute;
   top: 175px;
   left: -90px;
-  z-index: 99;
 }
+
+/*STYLE DA FAQ-QUESTIONS*/
 
 .faq-questions {
   padding: 2rem;
 }
 
+/*STYLE DO TÍTULO <h1>FAQ</h1>*/
 .faq-questions h1 {
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 2rem;
@@ -61,6 +70,8 @@ body {
   color: hsl(238, 29%, 16%);
 }
 
+
+/*STYLE DAS PERGUNTAS*/
 .faq-questions dt {
   font-size: 1.125rem;
   font-family: 'Kumbh Sans', sans-serif;
@@ -70,28 +81,31 @@ body {
   transition: all 1s;
 }
 
+/*INSERÇÃO DA SETA NA PERGUNTA*/
 .faq-questions dt::after {
   content: "";
   display: inline-block;
   background-image: url("./images/icon-arrow-down.svg");
   width: 10px;
   height: 7px;
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  position: relative;
+  right: -10px;
   transition: all .5s;
 }
 
+/*ADD CLASSE ACTIVE COM JAVASCRIPT PARA FICAR EM NEGRITO A PERGUNTA*/
 .faq-questions dt.active {
   font-weight: 700;
   transition: all .8s;
 }
 
+/*ADD CLASSE ACTIVE NA SETA PARA APONTAR PARA CIMA*/
 .faq-questions dt.active::after {
   transform: rotate(180deg);
   transition: all .5s;
 }
 
+/*STYLE DAS RESPOSTAS*/
 .faq-accordion dd {
   font-size: 1rem;
   font-family: 'Kumbh Sans', sans-serif;
@@ -101,6 +115,7 @@ body {
   opacity: 0;
 }
 
+/*ADD CLASSE ACTIVE COM JAVASCRIPT PARA EXIBIR AS RESPOSTAS AO CLICAR NA PERGUNTA*/
 .faq-accordion dd.active {
   margin-top: .5rem;
   margin-bottom: 1rem;
@@ -112,4 +127,58 @@ body {
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+/*STYLE MOBILE RESPONSIVO*/
+@media (max-width:876px) {
+  .faq-accordion {
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 90%;
+    gap: 0;
+    position: relative;
+  }
+
+  .faq-img {
+    background-image: none;
+    height: 150px;
+  }
+  
+  .faq-img::after {
+    max-width: 500px;
+    height: 150px;
+    background-image: url("./images/bg-pattern-mobile.svg");
+    background-position: center -1px;
+    background-size: 300px;
+  }
+  
+  .faq-img img {
+    display: block;
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+    height: 200px;
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    transform: translatex(-50%);
+  }
+
+  
+  .faq-questions {
+    padding: 2rem;
+  }
+
+  .faq-questions h1 {
+    text-align: center;
+    margin: 0 0 2rem 0;
+  }
+}
+
+@media (max-width:450px) {
+  body {
+    height: 170vh;
+  }
 }
